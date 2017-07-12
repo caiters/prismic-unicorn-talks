@@ -1,0 +1,8 @@
+extends ./layout.pug
+//- Create a block
+block body
+  div(data-wio-id=pageContent.id)
+    //- This is how to get a structured text into your template
+    != PrismicDOM.RichText.asHtml(pageContent.data.talk_name, ctx.linkResolver)
+    != PrismicDOM.RichText.asHtml(pageContent.data.talk_description, ctx.linkResolver)
+    a(href=PrismicDOM.Link.url(pageContent.data.link_to_view, ctx.linkResolver)) View talk
